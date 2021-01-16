@@ -120,5 +120,8 @@
       }
     }
   },
-  "defaultProject": "lojaunit-front"
+  "defaultProject": "lojaunit-front",
+  "cli": {
+    "analytics": "d0af0263-2b92-4749-b124-85a05863ca8b"
+  }
 }

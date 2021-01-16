@@ -1,0 +1,23 @@
+<!--div *ngIf="cliente">
+    <h2>{{cliente.nome | uppercase}} - Detalhes</h2>
+    <div><label>id: </label>{{cliente.id}}</div>
+    <div>
+      <label>nome: </label>
+      <input [(ngModel)]="cliente.nome" placeholder="nome"/>
+    </div>
+</div-->
+
+<div *ngIf="cliente">
+  <h2>{{cliente.nome | uppercase}} - Detalhes</h2>
+  <div><span>id: </span>{{cliente.id}}</div>
+  <div>
+    <label>CPF: </label>
+    <input [(ngModel)]="cliente.cpf" placeholder="Digite o CPF"/><br>
+    <label>Nome: </label>
+    <input [(ngModel)]="cliente.nome" placeholder="Digite o nome"/><br>
+    <label>E-mail: </label>
+    <input [(ngModel)]="cliente.email" placeholder="Digite o e-mail"/><br>      
+  </div>
+  <button (click)="goBack()">Voltar</button>
+  <button (click)="save()">Salvar</button>
+</div>

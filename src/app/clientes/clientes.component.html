@@ -1,0 +1,47 @@
+<h2>Meus Clientes</h2>
+<!--div>
+    <label>Nome:
+      <input #nomeCliente />
+    </label-->
+    <!-- (click) passes input value to add() and then clears the input -->
+    <!--button (click)="add(nomeCliente.value); nomeCliente.value=''">
+      Adicionar
+    </button>
+</div-->
+<div>
+    <label>Nome:
+      <input #nomeCliente />
+    </label><br>
+    <label>CPF:
+      <input #cpfCliente />
+    </label><br>
+    <label>E-mail:
+      <input #emailCliente />
+    </label><br>
+    <!-- (click) passes input value to add() and then clears the input -->
+    <button (click)="add(cpfCliente.value, nomeCliente.value, emailCliente.value); cpfCliente.value=''; nomeCliente.value=''; emailCliente.value=''">
+      Adicionar
+    </button>
+  </div>
+
+<!--ul class="clientes">
+  <li *ngFor="let cliente of clientes"
+    [class.selected]="cliente === selectedCliente"
+    (click)="onSelect(cliente)">
+    <span class="badge">{{cliente.id}}</span> {{cliente.nome}}
+    <button class="delete" title="Deletar cliente"
+      (click)="delete(cliente)">x</button>
+  </li>
+</ul-->
+
+<ul class="clientes">
+  <li *ngFor="let cliente of clientes">
+    <a routerLink="/detalhe/{{cliente.id}}">
+      <span class="badge">{{cliente.id}}</span> {{cliente.nome}}
+    </a>
+    <button class="delete" title="Deletar cliente"
+      (click)="delete(cliente)">x</button>
+  </li>
+</ul>
+
+<!--app-cliente-detalhe [cliente]="selectedCliente"></app-cliente-detalhe-->
