@@ -1,0 +1,34 @@
+<div *ngIf="fornecedor">
+    <h2>Manutenção de fornecedor</h2>
+    <div>
+        <table class="formulario">
+            <tr>
+              <td>id:</td>
+              <td>{{fornecedor.id}}</td>
+            </tr>
+            <tr>
+              <td>Nome:</td>
+              <td><input type="text" id="nomeFornecedor" class="textbox" [(ngModel)]="fornecedor.nome" required placeholder="Digite o nome"/></td>
+            </tr>
+            <tr>
+              <td>Endereço:</td>
+              <td><input type="text" id="enderecoFornecedor" class="textbox" [(ngModel)]="fornecedor.endereco" placeholder="Digite o endereço"/></td>
+            </tr>
+            <tr>
+              <td>Telefone:</td>
+              <td><input type="text" id="telefoneFornecedor" class="textbox" [(ngModel)]="fornecedor.telefone" placeholder="Digite o telefone" maxlength="9"/></td>
+            </tr>
+            <tr>
+              <td>CNPJ:</td>
+              <td><input type="text" id="cnpjFornecedor" class="textbox" [(ngModel)]="fornecedor.cnpj" placeholder="Digite o CNPJ" maxlength="14"/></td>
+            </tr>
+            <tr>
+              <td>E-mail:</td>
+              <td><input type="text" id="emailFornecedor" class="textbox" [(ngModel)]="fornecedor.email" placeholder="Digite o e-mail"/></td>
+            </tr>
+          </table>
+          </div>
+    <button (click)="goBack()">Voltar</button>
+    &nbsp;
+    <button (click)="save()">Salvar</button>
+  </div>

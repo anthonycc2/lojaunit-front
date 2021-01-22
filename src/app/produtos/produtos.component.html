@@ -1,0 +1,58 @@
+<h2>Produtos</h2>
+<hr>
+  <div>  
+    <h3>Adicionar novo produto</h3>
+    <table class="formulario">
+      <tr>
+        <td>Nome:</td>
+        <td><input type="text" id="nomeProduto" class="textbox" [(ngModel)]="produto.nome" required placeholder="Digite o nome"/></td>
+      </tr>
+      <tr>
+        <td>Descrição:</td>
+        <td><input type="text" id="descricaoProduto" class="textbox" [(ngModel)]="produto.descricao" placeholder="Digite a descrição"/></td>
+      </tr>
+      <tr>
+        <td>Preço:</td>
+        <td><input type="text" id="precoProduto" class="textbox" [(ngModel)]="produto.preco" required placeholder="Digite o preço"/></td>
+      </tr>
+      <tr>
+        <td>Unidade:</td>
+        <td><input type="text" id="unidadeProduto" class="textbox" [(ngModel)]="produto.unidade" placeholder="Digite a unidade"/></td>
+      </tr>
+      <tr>
+        <td>Categoria:</td>
+        <td><input type="text" id="idCategoria" class="textbox" [(ngModel)]="produto.categoria.id" placeholder="Digite o id da categoria"/></td>
+      </tr>
+      <tr>
+        <td>Fornecedor:</td>
+        <td><input type="text" id="idFornecedor" class="textbox" [(ngModel)]="produto.fornecedor.id" placeholder="Digite o id do fornecedor"/></td>
+      </tr>
+      <tr>
+        <td>Marca:</td>
+        <td><input type="text" id="idMarca" class="textbox" [(ngModel)]="produto.marca.id" placeholder="Digite o id da marca"/></td>
+      </tr>     
+    </table>
+    <button (click)="add();">Adicionar</button>
+  </div>
+
+  <br>
+  <table class="lista">
+    <tr class="tituloLista">
+      <td width="10%">ID</td>
+      <td width="20%">NOME</td>
+      <td width="20%">DESCRIÇÃO</td>
+      <td width="10%">PREÇO</td>
+      <td width="20%">UNIDADE</td>
+      <td width="10%">DETALHE</td>
+      <td width="10%">DELETAR</td>
+    </tr>
+    <tr *ngFor="let produto of produtos">
+      <td>{{produto.id}}</td>
+      <td>{{produto.nome}}</td>
+      <td>{{produto.descricao}}</td>
+      <td>{{produto.preco}}</td>
+      <td>{{produto.unidade}}</td>
+      <td><a routerLink="/produto/{{produto.id}}" class="detalhe">Detalhe</a></td>
+      <td><button class="delete" title="Deletar produto" (click)="delete(produto)">Deletar</button></td>
+    </tr>
+  </table>

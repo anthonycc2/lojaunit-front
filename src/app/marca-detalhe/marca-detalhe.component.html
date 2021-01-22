@@ -1,0 +1,22 @@
+<div *ngIf="marca">
+    <h2>Manutenção de marca</h2>
+    <div>
+      <table class="formulario">
+        <tr>
+          <td>id:</td>
+          <td>{{marca.id}}</td>
+        </tr>
+        <tr>
+          <td>Nome:</td>
+          <td><input type="text" id="nomeMarca" class="textbox" [(ngModel)]="marca.nome" required placeholder="Digite o nome"/></td>
+        </tr>
+        <tr>
+          <td>Descrição:</td>
+          <td><input type="text" id="descricaoMarca" class="textbox" [(ngModel)]="marca.descricao" placeholder="Digite a descrição"/></td>
+        </tr>
+      </table>
+    </div>
+    <button (click)="goBack()">Voltar</button>
+    &nbsp;
+    <button (click)="save()">Salvar</button>
+  </div>

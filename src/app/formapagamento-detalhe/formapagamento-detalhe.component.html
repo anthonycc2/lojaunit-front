@@ -1,0 +1,26 @@
+<div *ngIf="formaPagamento">
+    <h2>Manutenção de forma de pagamento</h2>
+    <div>
+        <table class="formulario">
+          <tr>
+            <td>id:</td>
+            <td>{{formaPagamento.id}}</td>
+          </tr>
+          <tr>
+            <td>Forma:</td>
+            <td><input type="text" id="formaFormapagamento" class="textbox" [(ngModel)]="formaPagamento.forma" required placeholder="Digite a forma"/></td>
+          </tr>
+          <tr>
+            <td>Descrição:</td>
+            <td><input type="text" id="descricaoFormapagamento" class="textbox" [(ngModel)]="formaPagamento.descricao" placeholder="Digite a descrição"/></td>
+          </tr>
+          <tr>
+            <td>Ativo:</td>
+            <td><input type="text" id="ativoFormapagamento" class="textbox" [(ngModel)]="formaPagamento.ativo" required placeholder="Digite true ou false" maxlength="5"/></td>
+          </tr>
+          </table>
+    </div>
+    <button (click)="goBack()">Voltar</button>
+    &nbsp;
+    <button (click)="save()">Salvar</button>
+</div>

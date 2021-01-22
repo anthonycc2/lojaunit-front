@@ -1,47 +1,72 @@
-<h2>Meus Clientes</h2>
-<!--div>
-    <label>Nome:
-      <input #nomeCliente />
-    </label-->
-    <!-- (click) passes input value to add() and then clears the input -->
-    <!--button (click)="add(nomeCliente.value); nomeCliente.value=''">
-      Adicionar
-    </button>
-</div-->
-<div>
-    <label>Nome:
-      <input #nomeCliente />
-    </label><br>
-    <label>CPF:
-      <input #cpfCliente />
-    </label><br>
-    <label>E-mail:
-      <input #emailCliente />
-    </label><br>
-    <!-- (click) passes input value to add() and then clears the input -->
-    <button (click)="add(cpfCliente.value, nomeCliente.value, emailCliente.value); cpfCliente.value=''; nomeCliente.value=''; emailCliente.value=''">
-      Adicionar
-    </button>
+<h2>Clientes</h2>
+<hr>
+  <div>  
+    <h3>Adicionar novo cliente</h3>
+    <table class="formulario">
+      <tr>
+        <td>Nome:</td>
+        <td><input type="text" id="nomeCliente" class="textbox" [(ngModel)]="cliente.nome" required placeholder="Digite o nome"/></td>
+      </tr>
+      <tr>
+        <td>CPF:</td>
+        <td><input type="text" id="cpfCliente" class="textbox" [(ngModel)]="cliente.cpf" required placeholder="Digite o CPF" maxlength="11"/></td>
+      </tr>
+      <tr>
+        <td>E-mail:</td>
+        <td><input type="text" id="emailCliente" class="textbox" [(ngModel)]="cliente.email" required placeholder="Digite o e-mail"/></td>
+      </tr>
+      <tr>
+        <td>Data da nascimento:</td>
+        <td><input type="text" id="dataNascimentoCliente" class="textbox" [(ngModel)]="cliente.dataNascimento" placeholder="Digite a data de nascimento"/></td>
+      </tr>
+      <tr>
+        <td>Sexo:</td>
+        <td><input type="text" id="sexoCliente" class="textbox" [(ngModel)]="cliente.sexo" placeholder="Digite o sexo" maxlength="1"/></td>
+      </tr>
+      <tr>
+        <td>Apelido:</td>
+        <td><input type="text" id="apelidoCliente" class="textbox" [(ngModel)]="cliente.apelido" placeholder="Digite o apelido"/></td>
+      </tr>
+      <tr>
+        <td>Nome Social:</td>
+        <td><input type="text" id="nomeSocialCliente" class="textbox" [(ngModel)]="cliente.nomeSocial" placeholder="Digite o nome social"/></td>
+      </tr>
+      <tr>
+        <td>Telefone:</td>
+        <td><input type="text" id="telefoneCliente" class="textbox" [(ngModel)]="cliente.telefone" placeholder="Digite o telefone"/></td>
+      </tr>      
+    </table>
+    <button (click)="add();">Adicionar</button>
   </div>
 
-<!--ul class="clientes">
-  <li *ngFor="let cliente of clientes"
-    [class.selected]="cliente === selectedCliente"
-    (click)="onSelect(cliente)">
-    <span class="badge">{{cliente.id}}</span> {{cliente.nome}}
-    <button class="delete" title="Deletar cliente"
-      (click)="delete(cliente)">x</button>
-  </li>
-</ul-->
-
-<ul class="clientes">
-  <li *ngFor="let cliente of clientes">
-    <a routerLink="/detalhe/{{cliente.id}}">
-      <span class="badge">{{cliente.id}}</span> {{cliente.nome}}
-    </a>
-    <button class="delete" title="Deletar cliente"
-      (click)="delete(cliente)">x</button>
-  </li>
-</ul>
-
-<!--app-cliente-detalhe [cliente]="selectedCliente"></app-cliente-detalhe-->
+  <!--ul class="lista">
+    <li *ngFor="let cliente of clientes">
+      <a routerLink="/detalhe/{{cliente.id}}">
+        <span class="identificador">{{cliente.id}}</span> {{cliente.nome}}
+      </a>
+      <button class="delete" title="Deletar cliente" (click)="delete(cliente)">x</button>
+    </li>
+  </ul-->
+  <br>
+  <table class="lista">
+    <tr class="tituloLista">
+      <td width="10%">ID</td>
+      <td width="20%">NOME</td>
+      <td width="20%">E-MAIL</td>
+      <td width="10%">SEXO</td>
+      <td width="10%">DATA DE NASCIMENTO</td>
+      <td width="10%">TELEFONE</td>
+      <td width="10%">DETALHE</td>
+      <td width="10%">DELETAR</td>
+    </tr>
+    <tr *ngFor="let cliente of clientes">
+      <td>{{cliente.id}}</td>
+      <td>{{cliente.nome}}</td>
+      <td>{{cliente.email}}</td>
+      <td>{{cliente.sexo}}</td>
+      <td>{{cliente.dataNascimento}}</td>
+      <td>{{cliente.telefone}}</td>
+      <td><a routerLink="/cliente/{{cliente.id}}" class="detalhe">Detalhe</a></td>
+      <td><button class="delete" title="Deletar cliente" (click)="delete(cliente)">Deletar</button></td>
+    </tr>
+  </table>

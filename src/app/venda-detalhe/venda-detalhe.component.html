@@ -1,0 +1,72 @@
+<div *ngIf="venda">
+    <h2>Manutenção de venda</h2>
+    <hr>
+    <div>
+      <table class="formulario">
+        <tr>
+          <td>id:</td>
+          <td>{{venda.id}}</td>
+        </tr>
+        <tr>
+          <td>Data/hora:</td>
+          <td><input type="text" id="datahoraVenda" class="textbox" [(ngModel)]="venda.datahora" required placeholder="Digite a data e hora"/></td>
+        </tr>
+        <tr>
+          <td>Cliente:</td>
+          <td><input type="text" id="idCliente" class="textbox" [(ngModel)]="venda.cliente.id" required placeholder="Digite a descrição"/>&nbsp;{{venda.cliente.nome}}</td>
+        </tr>
+        <tr>
+          <td>Forma de pagamento:</td>
+          <td><input type="text" id="idFormapagamento" class="textbox" [(ngModel)]="venda.formaPagamento.id" required placeholder="Digite o id da forma de pagamento"/>&nbsp;{{venda.formaPagamento.forma}}</td>
+        </tr>
+        <tr>
+          <td>Valor:</td>
+          <td><input type="text" id="valorVenda" class="textbox" [(ngModel)]="venda.valor" required placeholder="Digite o valor"/></td>
+        </tr>    
+      </table>
+    </div>
+    <button (click)="goBack()">Voltar</button>
+    &nbsp;
+    <button (click)="save()">Salvar</button>
+  </div>
+
+  <div *ngIf="itemVenda">  
+    <h3>Adicionar novo item</h3>
+    <table class="formulario">
+      <tr>
+        <td>Venda:</td>
+        <td>{{venda.id}}</td>
+      </tr>
+      <tr>
+        <td>Produto:</td>
+        <td><input type="text" id="idProduto" class="textbox" [(ngModel)]="itemVenda.itemVendaId.produto.id" placeholder="Digite o id do produto"/></td>
+      </tr>
+      <tr>
+        <td>Quantidade:</td>
+        <td><input type="text" id="quantidadeItemVenda" class="textbox" [(ngModel)]="itemVenda.quantidade" placeholder="Digite a quantidade"/></td>
+      </tr>
+      <tr>
+        <td>Valor unitário:</td>
+        <td><input type="text" id="valorUnitarioItemVenda" class="textbox" [(ngModel)]="itemVenda.valorUnitario" placeholder="Digite o valor unitário"/></td>
+      </tr>
+    </table>
+    <button (click)="add();">Adicionar</button>
+  </div>
+  <!--h2>Venda: {{venda.id}}</h2-->
+  <br>
+  <table class="lista">
+    <tr>
+      <td width="10%">VENDA</td>
+      <td width="40%">PRODUTO</td>
+      <td widt="20%">QUANTIDADE</td>
+      <td width="20%">VALOR UNITÁRIO</td>
+      <td width="10%">DETALHE</td>
+    </tr>
+    <tr *ngFor="let nitemVenda of itensVenda">>
+      <td>{{nitemVenda.itemVendaId.produto.id}}</td>
+      <td>{{nitemVenda.itemVendaId.produto.nome}}</td>
+      <td>{{nitemVenda.quantidade}}</td>
+      <td>{{nitemVenda.valorUnitarioItemVenda}}</td>
+      <td><button class="delete" title="Deletar item de venda" (click)="delete(nitemVenda)">Deletar</button></td>
+    </tr>
+  </table>

@@ -1,0 +1,31 @@
+<h2>Categorias</h2>
+<hr>
+  <div>  
+    <h3>Adicionar nova categoria </h3>
+    <table class="formulario">
+      <tr>
+        <td>Nome:</td>
+        <td><input type="text" id="nomeCategoria" class="textbox" [(ngModel)]="categoria.nome" required placeholder="Digite o nome"/></td>
+      </tr>
+      <tr>
+        <td>Ativo:</td>
+        <td><input type="text" id="ativoCategoria" class="textbox" [(ngModel)]="categoria.ativo" required placeholder="Digite true ou false"/></td>
+      </tr>
+      <!--tr>
+        <td>Ativo:</td>
+        <td><input type="checkbox" id="ativoCategoria" class="textbox" [(ngModel)]="categoria.ativo" value="true"></td>
+      </tr-->
+    </table>
+    <button (click)="add();">Adicionar</button>
+  </div>
+
+  <br>
+  <table class="lista">
+    <tr *ngFor="let categoria of categorias">
+      <td width="10%">{{categoria.id}}</td>
+      <td width="40%">{{categoria.nome}}</td>
+      <td width="30%">{{categoria.ativo}}</td>
+      <td width="10%"><a routerLink="/categoria/{{categoria.id}}" class="detalhe">Detalhe</a></td>
+      <td width="10%"><button class="delete" title="Deletar categoria" (click)="delete(categoria)">Deletar</button></td>
+    </tr>
+  </table>

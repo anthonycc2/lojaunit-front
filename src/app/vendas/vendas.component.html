@@ -1,0 +1,47 @@
+<h2>Vendas</h2>
+<hr>
+  <div>  
+    <h3>Realizar nova venda</h3>
+    <table class="formulario">
+      <tr>
+        <td>Data/hora:</td>
+        <td><input type="text" id="datahoraVenda" class="textbox" [(ngModel)]="venda.datahora" required placeholder="Digite a data e hora"/></td>
+      </tr>
+      <tr>
+        <td>Cliente:</td>
+        <td><input type="text" id="idCliente" class="textbox" [(ngModel)]="venda.cliente.id" required placeholder="Digite a descrição"/></td>
+      </tr>
+      <tr>
+        <td>Forma de pagamento:</td>
+        <td><input type="text" id="idFormapagamento" class="textbox" [(ngModel)]="venda.formaPagamento.id" required placeholder="Digite o id da forma de pagamento"/></td>
+      </tr>
+      <tr>
+        <td>Valor:</td>
+        <td><input type="text" id="valorVenda" class="textbox" [(ngModel)]="venda.valor" required placeholder="Digite o valor"/></td>
+      </tr>
+    </table>
+    <button (click)="add();">Adicionar</button>
+  </div>
+
+  <br>
+  <table class="lista">
+    <tr class="tituloLista">
+      <td width="10%">ID</td>
+      <td width="20%">DATA/HORA</td>
+      <td width="20%">CLIENTE</td>
+      <td width="20%">FORMA DE PAGAMENTO</td>
+      <td width="10%">VALOR</td>
+      <td width="10%">DETALHE</td>
+      <td width="10%">DELETAR</td>
+    </tr>
+    <tr *ngFor="let venda of vendas">
+      <td>{{venda.id}}</td>
+      <td>{{venda.datahora}}</td>
+      <td>{{venda.cliente.nome}}</td>
+      <td>{{venda.formaPagamento.forma}}</td>
+      <td>{{venda.valor}}</td>
+      <td><a routerLink="/venda/{{venda.id}}" class="detalhe">Detalhe</a></td>
+      <td><button class="delete" title="Deletar venda" (click)="delete(venda)">Deletar</button></td>
+    </tr>
+  </table>
+

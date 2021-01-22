@@ -1,0 +1,42 @@
+<div *ngIf="produto">
+    <h2>Manutenção de produto</h2>
+    <div>
+      <table class="formulario">
+        <tr>
+          <td>id:</td>
+          <td>{{produto.id}}</td>
+        </tr>
+        <tr>
+          <td>Nome:</td>
+          <td><input type="text" id="nomeProduto" class="textbox" [(ngModel)]="produto.nome" required placeholder="Digite o nome"/></td>
+        </tr>
+        <tr>
+          <td>Descrição:</td>
+          <td><input type="text" id="descricaoProduto" class="textbox" [(ngModel)]="produto.descricao" placeholder="Digite a descrição"/></td>
+        </tr>
+        <tr>
+          <td>Preço:</td>
+          <td><input type="text" id="precoProduto" class="textbox" [(ngModel)]="produto.preco" required placeholder="Digite o preço"/></td>
+        </tr>
+        <tr>
+          <td>Unidade:</td>
+          <td><input type="text" id="unidadeProduto" class="textbox" [(ngModel)]="produto.unidade" placeholder="Digite a unidade"/></td>
+        </tr>
+        <tr>
+          <td>Categoria:</td>
+          <td><input type="text" id="idCategoria" class="textbox" [(ngModel)]="produto.categoria.id" placeholder="Digite o id da categoria"/>{{produto.categoria.nome}}</td>
+        </tr>
+        <tr>
+          <td>Fornecedor:</td>
+          <td><input type="text" id="idFornecedor" class="textbox" [(ngModel)]="produto.fornecedor.id" placeholder="Digite o id do fornecedor"/></td>
+        </tr>
+        <tr>
+          <td>Marca:</td>
+          <td><input type="text" id="idMarca" class="textbox" [(ngModel)]="produto.marca.id" placeholder="Digite o id da marca"/></td>
+        </tr>     
+      </table>
+    </div>
+    <button (click)="goBack()">Voltar</button>
+    &nbsp;
+    <button (click)="save()">Salvar</button>
+  </div>

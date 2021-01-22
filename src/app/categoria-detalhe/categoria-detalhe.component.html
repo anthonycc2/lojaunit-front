@@ -1,0 +1,22 @@
+<div *ngIf="categoria">
+  <h2>Manutenção de categoria</h2>
+  <div>
+    <table class="formulario">
+      <tr>
+        <td>id:</td>
+        <td>{{categoria.id}}</td>
+      </tr>
+      <tr>
+        <td>Nome:</td>
+        <td><input type="text" id="nomeCategoria" class="textbox" [(ngModel)]="categoria.nome" required placeholder="Digite o nome"/></td>
+      </tr>
+      <tr>
+        <td>Ativo:</td>
+        <td><input type="text" id="ativoCategoria" class="textbox" [(ngModel)]="categoria.ativo" required placeholder="Digite true ou false"/></td>
+      </tr>      
+    </table>
+  </div>
+  <button (click)="goBack()">Voltar</button>
+  &nbsp;
+  <button (click)="save()">Salvar</button>
+</div>

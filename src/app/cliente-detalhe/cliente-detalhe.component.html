@@ -1,23 +1,46 @@
-<!--div *ngIf="cliente">
-    <h2>{{cliente.nome | uppercase}} - Detalhes</h2>
-    <div><label>id: </label>{{cliente.id}}</div>
-    <div>
-      <label>nome: </label>
-      <input [(ngModel)]="cliente.nome" placeholder="nome"/>
-    </div>
-</div-->
-
 <div *ngIf="cliente">
-  <h2>{{cliente.nome | uppercase}} - Detalhes</h2>
-  <div><span>id: </span>{{cliente.id}}</div>
+  <h2>Manutenção de cliente</h2>
   <div>
-    <label>CPF: </label>
-    <input [(ngModel)]="cliente.cpf" placeholder="Digite o CPF"/><br>
-    <label>Nome: </label>
-    <input [(ngModel)]="cliente.nome" placeholder="Digite o nome"/><br>
-    <label>E-mail: </label>
-    <input [(ngModel)]="cliente.email" placeholder="Digite o e-mail"/><br>      
+    <table class="formulario">
+      <tr>
+        <td>id:</td>
+        <td>{{cliente.id}}</td>
+      </tr>
+      <tr>
+        <td>Nome:</td>
+        <td><input type="text" id="nomeCliente" class="textbox" [(ngModel)]="cliente.nome" required placeholder="Digite o nome"/></td>
+      </tr>
+      <tr>
+        <td>CPF:</td>
+        <td><input type="text" id="cpfCliente" class="textbox" [(ngModel)]="cliente.cpf" required placeholder="Digite o CPF" maxlength="11"/></td>
+      </tr>
+      <tr>
+        <td>E-mail:</td>
+        <td><input type="text" id="emailCliente" class="textbox" [(ngModel)]="cliente.email" required placeholder="Digite o e-mail"/></td>
+      </tr>
+      <tr>
+        <td>Data da nascimento:</td>
+        <td><input type="text" id="dataNascimentoCliente" class="textbox" [(ngModel)]="cliente.dataNascimento" placeholder="Digite a data de nascimento"/></td>
+      </tr>
+      <tr>
+        <td>Sexo:</td>
+        <td><input type="text" id="sexoCliente" class="textbox" [(ngModel)]="cliente.sexo" placeholder="Digite o sexo" maxlength="1"/></td>
+      </tr>
+      <tr>
+        <td>Apelido:</td>
+        <td><input type="text" id="apelidoCliente" class="textbox" [(ngModel)]="cliente.apelido" placeholder="Digite o apelido"/></td>
+      </tr>
+      <tr>
+        <td>Nome Social:</td>
+        <td><input type="text" id="nomeSocialCliente" class="textbox" [(ngModel)]="cliente.nomeSocial" placeholder="Digite o nome social"/></td>
+      </tr>
+      <tr>
+        <td>Telefone:</td>
+        <td><input type="text" id="telefoneCliente" class="textbox" [(ngModel)]="cliente.telefone" placeholder="Digite o telefone"/></td>
+      </tr>      
+    </table>
   </div>
   <button (click)="goBack()">Voltar</button>
+  &nbsp;
   <button (click)="save()">Salvar</button>
 </div>

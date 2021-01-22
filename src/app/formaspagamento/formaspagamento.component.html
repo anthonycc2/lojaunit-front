@@ -1,0 +1,32 @@
+<h2>Formas de Pagamento</h2>
+<hr>
+  <div>  
+    <h3>Adicionar nova forma</h3>
+    <table class="formulario">
+      <tr>
+        <td>Forma:</td>
+        <td><input type="text" id="formaFormapagamento" class="textbox" [(ngModel)]="formapagamento.forma" required placeholder="Digite a forma"/></td>
+      </tr>
+      <tr>
+        <td>Descrição:</td>
+        <td><input type="text" id="descricaoFormapagamento" class="textbox" [(ngModel)]="formapagamento.descricao" placeholder="Digite a descrição"/></td>
+      </tr>
+      <tr>
+        <td>Ativo:</td>
+        <td><input type="text" id="ativoFormapagamento" class="textbox" [(ngModel)]="formapagamento.ativo" required placeholder="Digite true ou false" maxlength="5"/></td>
+      </tr>
+    </table>
+    <button (click)="add();">Adicionar</button>
+  </div>
+
+  <br>
+  <table class="lista">
+    <tr *ngFor="let formapagamento of formaspagamento">
+      <td width="10%">{{formapagamento.id}}</td>
+      <td width="20%">{{formapagamento.forma}}</td>
+      <td width="30%">{{formapagamento.descricao}}</td>
+      <td width="20%">{{formapagamento.ativo}}</td>
+      <td width="10%"><a routerLink="/formapagamento/{{formapagamento.id}}" class="detalhe">Detalhe</a></td>
+      <td width="10%"><button class="delete" title="Deletar forma de pagamento" (click)="delete(formapagamento)">Deletar</button></td>
+    </tr>
+  </table>

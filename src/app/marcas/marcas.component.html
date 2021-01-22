@@ -1,0 +1,27 @@
+<h2>Marcas</h2>
+<hr>
+  <div>  
+    <h3>Adicionar nova marca</h3>
+    <table class="formulario">
+      <tr>
+        <td>Nome:</td>
+        <td><input type="text" id="nomeMarca" class="textbox" [(ngModel)]="marca.nome" required placeholder="Digite o nome"/></td>
+      </tr>
+      <tr>
+        <td>Descrição:</td>
+        <td><input type="text" id="descricaoMarca" class="textbox" [(ngModel)]="marca.descricao" placeholder="Digite a descrição"/></td>
+      </tr>
+    </table>
+    <button (click)="add();">Adicionar</button>
+  </div>
+
+  <br>
+  <table class="lista">
+    <tr *ngFor="let marca of marcas">
+      <td width="10%">{{marca.id}}</td>
+      <td width="30%">{{marca.nome}}</td>
+      <td width="40%">{{marca.descricao}}</td>
+      <td width="10%"><a routerLink="/marca/{{marca.id}}" class="detalhe">Detalhe</a></td>
+      <td width="10%"><button class="delete" title="Deletar marca" (click)="delete(marca)">Deletar</button></td>
+    </tr>
+  </table>

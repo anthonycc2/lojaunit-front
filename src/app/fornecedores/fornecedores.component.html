@@ -1,0 +1,39 @@
+<h2>Fornecedores</h2>
+<hr>
+  <div>  
+    <h3>Adicionar novo fornecedor</h3>
+    <table class="formulario">
+      <tr>
+        <td>Nome:</td>
+        <td><input type="text" id="nomeFornecedor" class="textbox" [(ngModel)]="fornecedor.nome" required placeholder="Digite o nome"/></td>
+      </tr>
+      <tr>
+        <td>Endereço:</td>
+        <td><input type="text" id="enderecoFornecedor" class="textbox" [(ngModel)]="fornecedor.endereco" placeholder="Digite o endereço"/></td>
+      </tr>
+      <tr>
+        <td>Telefone:</td>
+        <td><input type="text" id="telefoneFornecedor" class="textbox" [(ngModel)]="fornecedor.telefone" placeholder="Digite o telefone" maxlength="9"/></td>
+      </tr>
+      <tr>
+        <td>CNPJ:</td>
+        <td><input type="text" id="cnpjFornecedor" class="textbox" [(ngModel)]="fornecedor.cnpj" placeholder="Digite o CNPJ" maxlength="14"/></td>
+      </tr>
+      <tr>
+        <td>E-mail:</td>
+        <td><input type="text" id="emailFornecedor" class="textbox" [(ngModel)]="fornecedor.email" placeholder="Digite o e-mail"/></td>
+      </tr>
+    </table>
+    <button (click)="add();">Adicionar</button>
+  </div>
+
+  <br>
+  <table class="lista">
+    <tr *ngFor="let fornecedor of fornecedores">
+      <td width="10%">{{fornecedor.id}}</td>
+      <td width="30%">{{fornecedor.nome}}</td>
+      <td width="40%">{{fornecedor.telefone}}</td>
+      <td width="10%"><a routerLink="/fornecedor/{{fornecedor.id}}" class="detalhe">Detalhe</a></td>
+      <td width="10%"><button class="delete" title="Deletar fornecedor" (click)="delete(fornecedor)">Deletar</button></td>
+    </tr>
+  </table>

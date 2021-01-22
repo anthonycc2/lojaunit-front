@@ -1,0 +1,42 @@
+<!--h2>Itens da venda</h2>
+<hr-->
+  <div>  
+    <h3>Adicionar novo item</h3>
+    <table class="formulario">
+      <tr>
+        <td>Venda:</td>
+        <td>{{itemVenda.itemVendaId.venda.id}}</td>
+      </tr>
+      <tr>
+        <td>Produto:</td>
+        <td><input type="text" id="idProduto" class="textbox" [(ngModel)]="itemVenda.itemVendaId.produto.id" placeholder="Digite o id do produto"/></td>
+      </tr>
+      <tr>
+        <td>Quantidade:</td>
+        <td><input type="text" id="quantidadeItemVenda" class="textbox" [(ngModel)]="itemVenda.quantidade" placeholder="Digite a quantidade"/></td>
+      </tr>
+      <tr>
+        <td>Valor unitário:</td>
+        <td><input type="text" id="valorUnitarioItemVenda" class="textbox" [(ngModel)]="itemVenda.valorUnitario" placeholder="Digite o valor unitário"/></td>
+      </tr>
+    </table>
+    <button (click)="add();">Adicionar</button>
+  </div>
+  <h2>Venda: {{venda.id}}</h2>
+  <br>
+  <table class="lista">
+    <tr *ngFor="let itemVenda of itensVenda">
+      <td width="10%">VENDA</td>
+      <td width="40%">PRODUTO</td>
+      <td width="20%">QUANTIDADE</td>
+      <td width="20%">VALOR UNITÁRIO</td>
+      <td width="10%">DETALHE</td>
+    </tr>
+    <tr *ngFor="let itemVenda of itensVenda">>
+      <td>{{itemVenda.itemVendaId.produto.id}}</td>
+      <td>{{itemVenda.itemVendaId.produto.nome}}</td>
+      <td>{{itemVenda.quantidade}}</td>
+      <td>{{itemVenda.valorUnitarioItemVenda}}</td>
+      <td><button class="delete" title="Deletar item de venda" (click)="delete(itemVenda)">Deletar</button></td>
+    </tr>
+  </table>

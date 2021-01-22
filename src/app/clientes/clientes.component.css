@@ -1,12 +1,12 @@
-  .clientes {
+  .lista {
     margin: 0 0 2em 0;
     list-style-type: none;
     padding: 0;
-    width: 15em;
+    width: 100%;
   }
 
-  .clientes li {
-    cursor: pointer;
+  .lista tr {
+    /*cursor: pointer;*/
     position: relative;
     left: 0;
     background-color: #EEE;
@@ -16,23 +16,23 @@
     border-radius: 4px;
   }
 
-  .clientes li:hover {
+  .lista tr:hover {
     color: #607D8B;
     background-color: #DDD;
     left: .1em;
   }
 
-  .clientes li.selected {
+  /*.lista li.selected {
     background-color: #CFD8DC;
     color: white;
   }
 
-  .clientes li.selected:hover {
+  .lista li.selected:hover {
     background-color: #BBD8DC;
     color: white;
   }
 
-  .clientes .badge {
+  .lista .identificador {
     display: inline-block;
     font-size: small;
     color: white;
@@ -43,6 +43,65 @@
     left: -1px;
     top: -4px;
     height: 1.8em;
+    margin-right: .8em;
+    border-radius: 4px 0 0 4px;
+  }*/
+
+  .formulario {
+    color: rgb(6, 6, 78);
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: large;
+  }
+
+  .textbox {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: large;
+    background-color: #EEE;
+  }
+
+  button {
+    margin-top: 20px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: white;
+    background-color:rgb(6, 6, 78);
+    border: none;
+    padding: 5px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+
+  button:hover {
+    background-color: #313eaa;
+  }
+
+  button:disabled {
+    background-color: #eee;
+    color: #ccc;
+    cursor: auto;
+  }
+
+  .delete {
+    /*margin-top: 20px;*/
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: white;
+    background-color: red;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+
+  .detalhe {
+    color: white;
+    /*padding: 0.8em 0.7em 0 0.7em;*/
+    background-color:#405061;
+    /*line-height: 1em;*/
+    /*position: relative;*/
+    /*left: -1px;
+    top: -4px;*/
+    padding: 5px 10px;
+    border-radius: 4px;
+    height: 3em;
     margin-right: .8em;
     border-radius: 4px 0 0 4px;
   }

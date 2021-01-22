@@ -9,42 +9,49 @@ import { ClienteService } from '../cliente.service';
   styleUrls: ['./clientes.component.css']
 })
 export class ClientesComponent implements OnInit {
-  /*cliente: Cliente = {
-    id: 1,
-    nome: 'Joao da Costa'
-  };*/
-
-  //clientes = CLIENTES;
+  cliente: Cliente;
   clientes: Cliente[];
-  selectedCliente: Cliente;
 
   constructor(private clienteService: ClienteService) { }
 
   ngOnInit() {
+    this.cliente = {
+      id: 0,
+      cpf: '',
+      nome: '',
+      email: '',
+      dataNascimento: '',
+      sexo: '',
+      apelido: '',
+      nomeSocial: '',
+      telefone: ''
+    };
     this.getClientes();
   }
 
-  onSelect(cliente: Cliente): void {
+  /*onSelect(cliente: Cliente): void {
     this.selectedCliente = cliente;
     console.log(`ClientesComponent: selecionado o cliente id=${cliente.id}.`);
-  }
+  }*/
 
   getClientes() {
     this.clienteService.getClientes()
         .subscribe(clientes => this.clientes = clientes);
   }
 
-  add(cpf: string, nome: string, email: string): void {
-    //console.log("nome que está chegando:" + nome);
-    nome = nome.trim();
-    cpf = cpf.trim();
-    email = email.trim();
-    if (!nome || !cpf || !email) { return; }
-    this.clienteService.addCliente({ cpf, nome, email } as Cliente)
-      .subscribe(cliente => {
-        //this.clientes.push(cliente);
-        this.getClientes();
-      });  
+  add(): void {
+    this.clienteService.addCliente(this.cliente)
+    .subscribe(cliente => {
+      this.getClientes();
+    });  
+    document.getElementById('cpfCliente').textContent='';
+    document.getElementById('nomeCliente').textContent='';
+    document.getElementById('emailCliente').textContent='';
+    document.getElementById('dataNascimentoCliente').textContent='';
+    document.getElementById('sexoCliente').textContent='';
+    document.getElementById('apelidoCliente').textContent='';
+    document.getElementById('nomeSocialCliente').textContent='';
+    document.getElementById('telefoneCliente').textContent='';
   }
 
   delete(cliente: Cliente): void {

@@ -1,0 +1,42 @@
+<h2>FAQs</h2>
+<hr>
+  <div>  
+    <h3>Adicionar novo FAQ</h3>
+    <table class="formulario">
+      <tr>
+        <td>Data/Hora:</td>
+        <td><input type="text" id="datahoraFaq" class="textbox" [(ngModel)]="faq.datahora" required placeholder="Digite a data e hora"/></td>
+      </tr>
+      <tr>
+        <td>Texto:</td>
+        <td><input type="text" id="textoFaq" class="textbox" [(ngModel)]="faq.texto" required placeholder="Digite o texto"/></td>
+      </tr>
+      <tr>
+        <td>Produto:</td>
+        <td><input type="text" id="idProduto" class="textbox" [(ngModel)]="faq.produto.id" required placeholder="Digite o id do produto"/></td>
+      </tr>
+    </table>
+    <button (click)="add();">Adicionar</button>
+  </div>
+
+  <br>
+  <table class="lista">
+    <tr class="tituloLista">
+      <td width="10%">ID</td>
+      <td width="20%">DATA/HORA</td>
+      <td width="30%">TEXTO</td>
+      <td width="10%">ID PRODUTO</td>
+      <td width="10%">PRODUTO</td>
+      <td width="10%">DETALHE</td>
+      <td width="10%">DELETAR</td>
+    </tr>
+    <tr *ngFor="let faq of faqs">
+      <td>{{faq.id}}</td>
+      <td>{{faq.datahora}}</td>
+      <td>{{faq.texto}}</td>
+      <td>{{faq.produto.id}}</td>
+      <td>{{faq.produto.nome}}</td>
+      <td><a routerLink="/faq/{{faq.id}}" class="detalhe">Detalhe</a></td>
+      <td><button class="delete" title="Deletar faq" (click)="delete(faq)">Deletar</button></td>
+    </tr>
+  </table>

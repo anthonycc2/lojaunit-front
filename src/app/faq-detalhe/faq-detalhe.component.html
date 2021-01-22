@@ -1,0 +1,26 @@
+<div *ngIf="faq">
+    <h2>Manutenção de FAQ</h2>
+    <div>
+      <table class="formulario">
+        <tr>
+          <td>id:</td>
+          <td>{{faq.id}}</td>
+        </tr>
+        <tr>
+          <td>Data/Hora:</td>
+          <td><input type="text" id="datahoraFaq" class="textbox" [(ngModel)]="faq.datahora" required placeholder="Digite a data e hora"/></td>
+        </tr>
+        <tr>
+          <td>Texto:</td>
+          <td><input type="text" id="textoFaq" class="textbox" [(ngModel)]="faq.texto" required placeholder="Digite o texto"/></td>
+        </tr>
+        <tr>
+          <td>Produto:</td>
+          <td><input type="text" id="idProduto" class="textbox" [(ngModel)]="faq.produto.id" required placeholder="Digite o id do produto"/></td>
+        </tr>    
+      </table>
+    </div>
+    <button (click)="goBack()">Voltar</button>
+    &nbsp;
+    <button (click)="save()">Salvar</button>
+  </div>
