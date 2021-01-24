@@ -41,15 +41,15 @@ export class ItemVendaService {
   /** POST: add a new hero to the server */
   addItemVenda(itemVenda: ItemVenda): Observable<ItemVenda> {
     return this.http.post<ItemVenda>(this.urlItemVenda + '/add', itemVenda, this.httpOptions).pipe(
-      tap((newItemVenda: ItemVenda) => console.log(`Adicionada itemVenda/produto com id=${newItemVenda.itemVendaId.produto.id}.`)),
+      tap((newItemVenda: ItemVenda) => console.log(`Adicionada itemVenda/produto com id=${newItemVenda.id.produto.id}.`)),
       catchError(this.handleError<ItemVenda>('addItemVenda'))
     );
   }
 
   /** DELETE: delete the hero from the server */
   deleteItemVenda(itemVenda: ItemVenda | number): Observable<ItemVenda> {
-    const idVenda = typeof itemVenda === 'number' ? itemVenda : itemVenda.itemVendaId.venda.id;
-    const idProduto = typeof itemVenda === 'number' ? itemVenda : itemVenda.itemVendaId.produto.id;
+    const idVenda = typeof itemVenda === 'number' ? itemVenda : itemVenda.id.venda.id;
+    const idProduto = typeof itemVenda === 'number' ? itemVenda : itemVenda.id.produto.id;
     const url = `${this.urlItemVenda}/delete/${idVenda}/${idProduto}`;
 
     return this.http.delete<ItemVenda>(url, this.httpOptions).pipe(

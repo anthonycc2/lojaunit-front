@@ -46,6 +46,7 @@ export class VendasComponent implements OnInit {
   }
 
   add(): void {
+    console.log(this.venda);
     this.vendaService.addVenda(this.venda)
     .subscribe(venda => {
       this.getVendas();

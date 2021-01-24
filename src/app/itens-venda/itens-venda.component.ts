@@ -13,19 +13,20 @@ export class ItensVendaComponent implements OnInit {
   itemVenda: ItemVenda;
   itensVenda: ItemVenda[];
 
-  @Input() venda: Venda;
+  //@Input() venda: Venda;
+  venda: Venda;
   produto: Produto;
 
   constructor(private itemVendaService: ItemVendaService) { }
 
   ngOnInit() {
-    /*this.venda = {
+    this.venda = {
       id: 0,
       datahora: '',
       cliente: null,
       formaPagamento: null,
       valor: 0
-    };*/
+    };
 
     this.produto = {
       id: 0,
@@ -39,7 +40,7 @@ export class ItensVendaComponent implements OnInit {
     }
     
     this.itemVenda = {
-      itemVendaId: {
+      id: {
         venda: this.venda,
         produto: this.produto,
       },
@@ -56,10 +57,11 @@ export class ItensVendaComponent implements OnInit {
   }
 
   add(): void {
+    console.log(this.itemVenda);
     this.itemVendaService.addItemVenda(this.itemVenda)
     .subscribe(itemVenda => {
       this.getItensVenda();
-    });  
+    });
     /*document.getElementById('nomeItemVenda').textContent='';
     document.getElementById('enderecoItemVenda').textContent='';
     document.getElementById('telefoneItemVenda').textContent='';

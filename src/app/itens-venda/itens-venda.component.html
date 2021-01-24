@@ -5,11 +5,11 @@
     <table class="formulario">
       <tr>
         <td>Venda:</td>
-        <td>{{itemVenda.itemVendaId.venda.id}}</td>
+        <td><input type="text" id="idVenda" class="textbox" [(ngModel)]="itemVenda.id.venda.id" placeholder="Digite o id da venda"/></td>
       </tr>
       <tr>
         <td>Produto:</td>
-        <td><input type="text" id="idProduto" class="textbox" [(ngModel)]="itemVenda.itemVendaId.produto.id" placeholder="Digite o id do produto"/></td>
+        <td><input type="text" id="idProduto" class="textbox" [(ngModel)]="itemVenda.id.produto.id" placeholder="Digite o id do produto"/></td>
       </tr>
       <tr>
         <td>Quantidade:</td>
@@ -22,7 +22,6 @@
     </table>
     <button (click)="add();">Adicionar</button>
   </div>
-  <h2>Venda: {{venda.id}}</h2>
   <br>
   <table class="lista">
     <tr *ngFor="let itemVenda of itensVenda">
@@ -33,8 +32,8 @@
       <td width="10%">DETALHE</td>
     </tr>
     <tr *ngFor="let itemVenda of itensVenda">>
-      <td>{{itemVenda.itemVendaId.produto.id}}</td>
-      <td>{{itemVenda.itemVendaId.produto.nome}}</td>
+      <td>{{itemVenda.id.produto.id}}</td>
+      <td>{{itemVenda.id.produto.nome}}</td>
       <td>{{itemVenda.quantidade}}</td>
       <td>{{itemVenda.valorUnitarioItemVenda}}</td>
       <td><button class="delete" title="Deletar item de venda" (click)="delete(itemVenda)">Deletar</button></td>

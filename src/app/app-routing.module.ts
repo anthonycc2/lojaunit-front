@@ -16,6 +16,7 @@ import { FaqsComponent } from './faqs/faqs.component';
 import { FaqDetalheComponent } from './faq-detalhe/faq-detalhe.component';
 import { VendasComponent } from './vendas/vendas.component';
 import { VendaDetalheComponent } from './venda-detalhe/venda-detalhe.component';
+import { ItensVendaComponent } from './itens-venda/itens-venda.component';
 
 const routes: Routes = [
   //{ path: '', redirectTo: '/clientes', pathMatch: 'full' },
@@ -35,7 +36,8 @@ const routes: Routes = [
   { path: 'faq/:id', component: FaqDetalheComponent },
   { path: 'faqs', component: FaqsComponent },
   { path: 'venda/:id', component: VendaDetalheComponent },
-  { path: 'vendas', component: VendasComponent }
+  { path: 'vendas', component: VendasComponent },
+  { path: 'itens-venda', component: ItensVendaComponent }
 ];
 
 @NgModule({

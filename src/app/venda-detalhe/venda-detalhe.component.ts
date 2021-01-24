@@ -4,9 +4,9 @@ import { Location } from '@angular/common';
 
 import { Produto } from '../produto';
 import { Venda } from '../venda';
-import { ItemVenda } from '../item-venda';
+//import { ItemVenda } from '../item-venda';
 import { VendaService } from '../venda.service';
-import { ItemVendaService } from '../item-venda.service';
+//import { ItemVendaService } from '../item-venda.service';
 
 @Component({
   selector: 'app-venda-detalhe',
@@ -15,20 +15,20 @@ import { ItemVendaService } from '../item-venda.service';
 })
 export class VendaDetalheComponent implements OnInit {
   venda: Venda;
-  itemVenda: ItemVenda;
+  /*itemVenda: ItemVenda;
   itensVenda: ItemVenda[];
-  produto: Produto;
+  produto: Produto;*/
 
   constructor(
     private route: ActivatedRoute,
     private vendaService: VendaService,
-    private itemVendaService: ItemVendaService,
+    //private itemVendaService: ItemVendaService,
     private location: Location
   ) {}
 
   ngOnInit(): void {
     this.getVenda();
-    //this.itemVenda.itemVendaId.venda = this.venda;
+    /*this.itemVenda.itemVendaId.venda = this.venda;
     this.getItensVenda();
 
     this.produto = {
@@ -49,7 +49,7 @@ export class VendaDetalheComponent implements OnInit {
       },
       quantidade: 0,
       valorUnitario: 0
-    }
+    }*/
   }
 
   getVenda(): void {
@@ -67,7 +67,8 @@ export class VendaDetalheComponent implements OnInit {
       .subscribe(() => this.goBack());
   }
 
-    getItensVenda() {
+  ////////// MÉTODOS DE ITEM VENDA /////////
+  /*getItensVenda() {
     this.itemVendaService.getItensVenda()
         .subscribe(itensVenda => this.itensVenda = itensVenda);
   }
@@ -78,15 +79,15 @@ export class VendaDetalheComponent implements OnInit {
     .subscribe(itemVenda => {
       this.getItensVenda();
     });  
-    /*document.getElementById('nomeItemVenda').textContent='';
+    document.getElementById('nomeItemVenda').textContent='';
     document.getElementById('enderecoItemVenda').textContent='';
     document.getElementById('telefoneItemVenda').textContent='';
     document.getElementById('cnpjItemVenda').textContent='';
-    document.getElementById('emailItemVenda').textContent='';*/
+    document.getElementById('emailItemVenda').textContent='';
   }
 
   delete(itemVenda: ItemVenda): void {
     this.itensVenda = this.itensVenda.filter(h => h !== itemVenda);
     this.itemVendaService.deleteItemVenda(itemVenda).subscribe();
-  }
+  }*/
 }
