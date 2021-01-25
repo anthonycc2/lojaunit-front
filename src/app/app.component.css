@@ -48,6 +48,7 @@
   .principal {
     /*height: 400px;*/
     border-style: double;
+    padding: 10px 10px 10px 10px;
   }
 
   span {

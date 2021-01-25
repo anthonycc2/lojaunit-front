@@ -24,18 +24,20 @@
   </div>
   <br>
   <table class="lista">
-    <tr *ngFor="let itemVenda of itensVenda">
-      <td width="10%">VENDA</td>
-      <td width="40%">PRODUTO</td>
+    <tr class="tituloLista">
+      <td width="10%">ID VENDA</td>
+      <td width="10%">ID PRODUTO</td>
+      <td width="30%">NOME</td>
       <td width="20%">QUANTIDADE</td>
       <td width="20%">VALOR UNITÁRIO</td>
-      <td width="10%">DETALHE</td>
+      <td width="10%">DELETAR</td>
     </tr>
-    <tr *ngFor="let itemVenda of itensVenda">>
+    <tr *ngFor="let itemVenda of itensVenda">
+      <td>{{itemVenda.id.venda.id}}</td>
       <td>{{itemVenda.id.produto.id}}</td>
       <td>{{itemVenda.id.produto.nome}}</td>
       <td>{{itemVenda.quantidade}}</td>
-      <td>{{itemVenda.valorUnitarioItemVenda}}</td>
+      <td>{{itemVenda.valorUnitario}}</td>
       <td><button class="delete" title="Deletar item de venda" (click)="delete(itemVenda)">Deletar</button></td>
     </tr>
   </table>
